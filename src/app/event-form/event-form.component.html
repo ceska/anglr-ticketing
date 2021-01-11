@@ -1,0 +1,37 @@
+<h2>Add an Event</h2>
+
+<div [hidden]="submitted">
+<form [formGroup]="eventForm" (ngSubmit)="add()">
+
+<div>
+  <label>Title: </label>
+  <input type="text" id="title" formControlName="title" required>
+</div>
+
+<div>
+  <label>Description: </label>
+  <input type="text" formControlName="description" required>
+</div>
+
+<div>
+  <label>Location: </label>
+  <input type="text" formControlName="location" required>
+</div>
+
+<div class="form-group">
+    <label for="ticketNo">Number of tickets: </label>
+    <input type="text" formControlName="ticketNo" required>
+</div>
+
+<br>
+<div>
+    <button type="submit">Add Event</button>
+</div>
+
+</form>
+</div>
+
+<br>
+<div [hidden]="!submitted">
+    <p>Your event has been added to the list.</p>
+</div>

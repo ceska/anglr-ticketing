@@ -1,0 +1,55 @@
+<div>
+
+<h3>Event Form</h3>
+<form #eventForm="ngForm" (ngSubmit)="edit()">
+    <div  class="cross-validation">
+    <div class="form-group">
+        <label for="title">Title: </label>
+        <input id="title" name="title" required [(ngModel)]="event.title" #title="ngModel">
+        <div *ngIf="title.invalid"> <!-- fix:: cannot read property error in console.log -->
+            <span *ngIf="title.errors.required">Cannot be blank.</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="description">Description: </label>
+        <input id="description" name="description" [(ngModel)]="event.description" #description="ngModel" >
+    </div>
+    <div class="form-group">
+        <label for="location">Location: </label>
+        <input id="location" name="location" [(ngModel)]="event.location" #location="ngModel" >
+    </div>
+    <div class="form-group">
+        <label for="ticketNo">Total Tickets: </label>
+        <input id="ticketNo" name="ticketNo" min="1" [(ngModel)]="event.ticketNo" #ticketNo="ngModel" >
+    </div>
+    <div class="form-group">
+        <label for="ticketSold">Tickets Sold: </label>
+        <input id="ticketSold" name="ticketSold" [max]="event.ticketNo" [(ngModel)]="event.ticketSold" #ticketSold="ngModel" >
+    </div>
+    </div>
+
+    <br>
+    <div>
+        <button type="submit" [disabled]="!eventForm.dirty || eventForm.invalid">Edit</button>
+    </div>
+</form>
+
+<div>
+    <button (click)="delete()">Delete</button>
+    <button (click)="toggleTicket()" [disabled]="event.ticketNo == event.ticketSold">Purchase</button>
+</div>
+
+<div [hidden]="!purchase">
+<br>
+<form (ngSubmit)="buy(ticketNew.value)" #ticketform="ngForm">
+    <p>Tickets Available: {{event.ticketNo - event.ticketSold}}</p>
+    <label for="ticketNew">Number of tickets: </label>
+    <input type="text" id="ticketNew" #ticketNew>
+    <br>
+    <div>
+        <button type="submit">Buy Tickets</button>
+    </div>
+</form>
+</div>
+
+</div>

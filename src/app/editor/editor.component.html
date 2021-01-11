@@ -1,0 +1,89 @@
+<div>
+
+<h2>Reactive Form Test</h2>
+
+<form [formGroup]="form">
+<label>
+    Name:
+    <input type="text" [formControl]="name">
+</label>
+<br>
+
+<p>Value: {{ name.value }}</p>
+<br>
+
+<div formArrayName="aliases">
+    <button (click)="addAlias()">Add Hobby</button>
+    <div *ngFor="let alias of aliases.controls; let i=index">
+      <label>
+          hobby: <input type="text" [formControlName]="i">
+      </label>
+    </div>
+</div>
+<br>
+
+<p><button (click)="updateName()">Set Default</button></p>
+</form>
+
+<h2>Reactive Event Form</h2>
+
+<div>
+<form [formGroup]="eventForm">
+
+<div>
+  <label>Title: </label>
+  <input type="text" id="title" formControlName="title" required>
+  <!-- <div *ngIf="title.invalid">
+    <span *ngIf="title.errors.required">
+        Cannot be blank.
+    </span>
+  </div> -->
+</div>
+
+<div>
+  <label>Description: </label>
+  <input type="text" formControlName="description" required>
+</div>
+
+<div>
+  <h3>Location</h3>
+  <label>
+    House #:
+    <input type="text" formControlName="no" required>
+  </label><br>
+  
+  <label>
+    Street:
+    <input type="text" formControlName="street" required>
+  </label><br>
+  
+  <label>
+    Barangay:
+    <input type="text" formControlName="barangay" required>
+  </label><br>
+  
+  <label>
+    City:
+    <input type="text" formControlName="city" required>
+  </label><br>
+</div><br>
+
+<div class="form-group">
+    <label for="ticketNo">Number of tickets: </label>
+    <input type="text" formControlName="ticketNo" required>
+</div>
+
+<div class="form-group">
+    <label for="ticketSold">Tickets Sold: </label>
+    <input type="text" formControlName="ticketSold" required>
+</div>
+
+<br>
+<div>
+    <button type="submit">Edit Event</button>
+</div>
+
+</form>
+</div>
+
+</div>

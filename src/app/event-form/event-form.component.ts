@@ -27,7 +27,6 @@ export class EventFormComponent implements OnInit {
 
   add(): void {
     this.submitted = true;
-    console.log(this.events);
     this.events.push({
       title: this.eventForm.get('title').value,
       description: this.eventForm.get('description').value,

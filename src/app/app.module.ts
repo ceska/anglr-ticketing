@@ -8,32 +8,41 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+
 import { AppComponent } from './app.component';
-import { EventsComponent } from './events/events.component';
-import { EventDetailsComponent } from './event-details/event-details.component';
 import { MessagesComponent } from './messages/messages.component';
 import { EventFormComponent } from './event-form/event-form.component';
-import { EditorComponent } from './editor/editor.component';
+import { EventsModule } from './events/events.module';
+import { EventTableComponent } from './event-table/event-table.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EventsComponent,
-    EventDetailsComponent,
     MessagesComponent,
     EventFormComponent,
-    EditorComponent
+    EventTableComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    EventsModule,
     ReactiveFormsModule,
     HttpClientModule,
     // Remove below when a real server is ready to receive requests.
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSelectModule,
+    NoopAnimationsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

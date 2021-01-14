@@ -1,0 +1,9 @@
+<div>
+<h2>All Events</h2>
+<div>
+    <ul>
+        <li *ngFor="let event of events"><a (click)="showDetails(event.id)"><span>{{event.title}}</span></a></li>
+    </ul>
+</div>
+<app-event-child [selectedEvent]="selectedEvent"></app-event-child>
+</div>

@@ -13,11 +13,11 @@ export class EventFormComponent implements OnInit {
   events: Event[] = [];
   submitted = false;
 
-  eventForm = this.fb.group({ //fix validation; disable add btn until req fields filled
+  eventForm = this.fb.group({
     title: ['', Validators.required],
     description: [''],
     location: ['', Validators.required],
-    ticketNo: ['', Validators.required],
+    ticketNo: ['', [Validators.required, Validators.min(1), Validators.pattern('^[0-9]+$')]],
   })
 
   constructor(private eventService: EventService, private fb: FormBuilder) { }

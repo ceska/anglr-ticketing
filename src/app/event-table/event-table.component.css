@@ -1,36 +1,41 @@
 mat-icon {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .table {
-  padding: 20px;
+    padding: 20px;
 }
 
 .table tbody tr td,
 .table thead th,
 .table thead {
-  padding: 10px;
-  border-left: 1px solid #dee2e6;
-  border-right: 1px solid #dee2e6;
-  width:max-content;
+    padding: 10px;
+    /* border-left: 1px solid #dee2e6;
+  border-right: 1px solid #dee2e6; */
+    width: max-content;
+}
+
+mat-form-field {
+    width: 125px;
+    padding: 0;
 }
 
 .output {
-  padding: 20px;
+    padding: 20px;
 }
 
 .delete {
-  color: red  ;
+    color: red;
 }
 
 .done {
-  color: green;
+    color: green;
 }
 
 .edit {
-  color: yellow;
+    color: yellow;
 }
 
 .not-allowed {
-  cursor: not-allowed;
+    cursor: not-allowed;
 }

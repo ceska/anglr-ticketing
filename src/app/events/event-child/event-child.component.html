@@ -4,38 +4,6 @@
         <p>Description: {{selectedEvent.description}}</p>
         <p>Location: {{selectedEvent.location}}</p>
         <p>Total Tickets: {{selectedEvent.ticketNo}}</p>
-        <p>Tickets Sold: {{selectedEvent.ticketSold}}</p>
+        <p>Available Tickets: {{selectedEvent.ticketNo - selectedEvent.ticketSold}}</p>
     </div>
-
-    <!-- <div>
-    <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm.value)">
-        <div>
-            <label for="title">Title: </label>
-            <input type="type" formControlName="title" placeholder="titleeee">
-            <!-- <div *ngIf="editForm.invalid">
-                <span *ngIf="editForm.controls.title.errors.required">Cannot be blank.</span>
-            </div>
-        </div>
-        <div>
-            <label for="description">Description </label>
-            <input formControlName="description">
-        </div>
-        <div>
-            <label for="location">Location: </label>
-            <input formControlName="location">
-        </div>
-        <div>
-            <label for="ticketNo">Total Tickets: </label>
-            <input formControlName="ticketNo">
-        </div>
-        <div>
-            <label for="ticketSold">Tickets Sold: </label>
-            <input formControlName="ticketSold">
-        </div>
-        <div>
-            <!-- <button class="submit">Save</button>
-            <button class="submit" [disabled]="editForm.dirty || !editForm.valid">Save</button>
-        </div>
-    </form>
-    </div> -->
 </div>

@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { LoginGuardService } from './login.guard.service';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -19,13 +20,15 @@ import { EventFormComponent } from './event-form/event-form.component';
 import { EventsModule } from './events/events.module';
 import { EventTableComponent } from './event-table/event-table.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MessagesComponent,
     EventFormComponent,
-    EventTableComponent
+    EventTableComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,9 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     MatSelectModule,
     NoopAnimationsModule 
   ],
-  providers: [],
+  providers: [
+    LoginGuardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

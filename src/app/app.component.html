@@ -1,7 +1,15 @@
-<h1>{{title}}</h1>
-<div><h2><a routerLink="/events">Events</a></h2></div>
-<div><h2><a routerLink="/create">Add Event</a></h2></div>
-<div><h2><a routerLink="/editor">Editor</a></h2></div>
-<hr>
-<router-outlet></router-outlet>
-<app-messages></app-messages>
+<div>
+    <h1 class="mat-h1">{{title}}</h1>
+    <div>
+        <h2><a routerLink="/events">Events</a></h2>
+    </div>
+    <div>
+        <h2><a routerLink="/create">Add Event</a></h2>
+    </div>
+    <div>
+        <h2><a routerLink="/editor">Editor</a></h2>
+    </div>
+    <hr>
+    <router-outlet></router-outlet>
+    <app-messages></app-messages>
+</div>
